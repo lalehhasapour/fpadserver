@@ -3,57 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid with Auto Loading Links</title>
+    <title>Iran Coin - Alerts</title>
     <style>
-        table {
-            width: 100%;
-            height: 100vh;
-            border-collapse: collapse;
+        body {
+            background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449261960_aa102c5b0b2d8ff08cdbcea249326313_2_3_photo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
         }
-        td {
-            width: 20%;
-            height: 20%;
-            border: 1px solid black;
+        .logo {
+            margin-top: 20px;
         }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .alert-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            display: inline-block;
+            width: 80%;
+            max-width: 600px;
+        }
+        .signal {
+            font-size: 18px;
+            color: #00FF00;
+        }
+        h1 {
+            font-size: 32px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #FF4500;
         }
     </style>
 </head>
 <body>
+    <div class="logo">
+        <img src="https://raw.githubusercontent.com/lalehhasapour/logo-images_APP/refs/heads/main/1726971218716_c7ab39c64111fc45e489d0f2b77f13f8_2_3_photo.png" alt="Iran Coin Logo">
+    </div>
 
-    <table>
-        <tr>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-        </tr>
-        <tr>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-        </tr>
-        <tr>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-        </tr>
-        <tr>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-            <td><iframe src="https://online-traffic-bot.blogspot.com"></iframe></td>
-        </tr>
-    </table>
+    <h1>IRAN COIN</h1>
+    <h2>سیگنال‌های فیوچرز ارزهای دیجیتال</h2>
 
+    <div id="alert-container" class="alert-box">
+        منتظر دریافت سیگنال‌ها...
+    </div>
+
+    <script>
+        // WebSocket connection
+        const socket = new WebSocket('ws://your-websocket-server.com');
+
+        socket.onopen = function () {
+            console.log('WebSocket connection opened');
+        };
+
+        socket.onmessage = function (event) {
+            // Handle the incoming messages (alerts)
+            const message = JSON.parse(event.data);
+            const alertContainer = document.getElementById('alert-container');
+            const signalElement = document.createElement('p');
+            signalElement.classList.add('signal');
+            signalElement.textContent = 'سیگنال جدید: ' + message.signal;
+            alertContainer.appendChild(signalElement);
+        };
+
+        socket.onclose = function () {
+            console.log('WebSocket connection closed');
+        };
+
+        socket.onerror = function (error) {
+            console.error('WebSocket Error: ' + error);
+        };
+    </script>
 </body>
 </html>
