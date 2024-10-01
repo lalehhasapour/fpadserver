@@ -3,96 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iran Coin - Alerts</title>
+    <title>iRANCOiN</title>
     <style>
-        body {
-            background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449261960_aa102c5b0b2d8ff08cdbcea249326313_2_3_photo.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
+            background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449267178_5c85db37594bdce93a6787dabdc142cf_2_3_photo.jpg');
+            background-size: cover;
+            background-position: center;
+            direction: rtl;
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 800px;
             text-align: center;
         }
-        .logo img {
-            width: 150px;
+        .title {
+            font-size: 3em;
+            color: #FFD700; /* زرد قناری مات */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000; /* سایه مشکی */
             margin-bottom: 20px;
         }
-        .alert-box {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
+        .subtitle {
+            font-size: 1.2em;
+            color: #333; /* مشکی مات */
+            margin-bottom: 40px;
+        }
+        .box {
+            background-color: rgba(255, 255, 255, 0.9); /* کادر سفید با شفافیت */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایه */
             padding: 20px;
-            margin-top: 20px;
-            color: #FFFFFF;
-            font-size: 18px;
-        }
-        h1 {
-            font-size: 36px;
-            color: #FFA500; /* رنگ زرد مایل به نارنجی */
             margin-bottom: 10px;
+            border-radius: 10px;
         }
-        h2 {
-            font-size: 24px;
-            color: #FF8C00; /* رنگ نارنجی تیره */
-            margin-bottom: 30px;
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
         }
-        .signal {
-            font-size: 18px;
-            color: #00FF00; /* رنگ سبز برای سیگنال‌ها */
-            margin-bottom: 10px;
+        .icons div {
+            width: 50px;
+            height: 50px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .icons div:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/lalehhasapour/logo-images_APP/refs/heads/main/1726971218716_c7ab39c64111fc45e489d0f2b77f13f8_2_3_photo.png" alt="Iran Coin Logo">
-        </div>
-        <h1>اولین و تنها پلتفورم رسمی ارائه خدمات بازارهای مالی</h1>
-        <h2>سیگنال‌های فیوچرز ارزهای دیجیتال</h2>
+        <div class="title">iRANCOiN</div>
+        <div class="subtitle">اولین پلتفرم رسمی ارائه سیگنال و ربات‌های معامله‌گر کریپتو، فارکس و باینری‌آپشن در کشور</div>
         
-        <div id="alert-container" class="alert-box">
-            منتظر دریافت سیگنال‌ها...
+        <div class="box">
+            <!-- پیام‌ها و سیگنال‌های WebSocket اینجا نمایش داده خواهند شد -->
+            پیام‌های لحظه‌ای در این قسمت قرار می‌گیرند.
         </div>
+    </div>
+    
+    <div class="icons">
+        <div title="آیکون 1">1</div>
+        <div title="آیکون 2">2</div>
+        <div title="آیکون 3">3</div>
+        <div title="آیکون 4">4</div>
     </div>
 
     <script>
-        // WebSocket connection
-        const socket = new WebSocket('ws://your-websocket-server.com');
-
-        socket.onopen = function () {
-            console.log('WebSocket connection opened');
+        // برای دریافت پیام‌های WebSocket
+        const socket = new WebSocket('wss://your-websocket-url');
+        
+        socket.onmessage = function(event) {
+            const box = document.querySelector('.box');
+            const message = document.createElement('div');
+            message.textContent = event.data;
+            message.classList.add('message-box');
+            box.appendChild(message);
         };
 
-        socket.onmessage = function (event) {
-            // Handle the incoming messages (alerts)
-            const message = JSON.parse(event.data);
-            const alertContainer = document.getElementById('alert-container');
-            const signalElement = document.createElement('p');
-            signalElement.classList.add('signal');
-            signalElement.textContent = 'سیگنال جدید: ' + message.signal;
-            alertContainer.appendChild(signalElement);
-        };
-
-        socket.onclose = function () {
-            console.log('WebSocket connection closed');
-        };
-
-        socket.onerror = function (error) {
-            console.error('WebSocket Error: ' + error);
-        };
+        // برای آیتم‌های آیکون
+        document.querySelectorAll('.icons div').forEach((icon, index) => {
+            icon.addEventListener('click', () => {
+                window.location.href = `https://your-link-${index + 1}.com`;
+            });
+        });
     </script>
 </body>
 </html>
