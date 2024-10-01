@@ -15,17 +15,19 @@
             background-position: center;
             direction: rtl;
             display: flex;
-            flex-direction: column;
-            align-items: center; /* سنتر کردن افقی */
-            justify-content: center; /* سنتر کردن عمودی */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* چینش عمودی */
         }
         .container {
             text-align: center;
             width: 90%; 
             max-width: 1200px;
+            position: relative;
+            margin: 0 auto; /* مرکز کردن کانتینر */
         }
         .title {
-            font-size: 6em; /* دو برابر بزرگتر */
+            font-size: 6em; /* اندازه بزرگ عنوان */
             color: #FFD700; /* زرد قناری مات */
             font-weight: bold;
             text-shadow: 4px 4px 8px #000; /* سایه مشکی */
@@ -36,12 +38,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             border-radius: 10px;
-            margin: 20px auto; /* کادر بالا برده شده */
+            margin-top: 20px; /* فاصله بالای کادر */
             height: 200px; /* ارتفاع کادر برای پیام‌ها */
             overflow-y: auto; /* اسکرول برای پیام‌های زیاد */
             text-align: right; /* متن راست‌چین */
-            width: 100%; /* عرض کادر 100 درصد */
-            max-width: 800px; /* حداکثر عرض کادر */
         }
         .icons {
             display: flex;
@@ -52,8 +52,8 @@
             right: 5%; /* فاصله از راست */
         }
         .icons div {
-            width: 70px; /* اندازه بزرگتر شده */
-            height: 70px; /* اندازه بزرگتر شده */
+            width: 70px; /* اندازه آیکون‌ها */
+            height: 70px; /* اندازه آیکون‌ها */
             background-color: #FFA500; /* زرد پررنگ‌تر */
             border-radius: 50%;
             display: flex;
