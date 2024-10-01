@@ -14,12 +14,15 @@
             background-size: cover;
             background-position: center;
             direction: rtl;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* سنتر کردن افقی */
+            justify-content: center; /* سنتر کردن عمودی */
         }
         .container {
             text-align: center;
             width: 90%; 
             max-width: 1200px;
-            margin-top: 20px; /* فاصله از بالای صفحه */
         }
         .title {
             font-size: 6em; /* دو برابر بزرگتر */
@@ -27,8 +30,6 @@
             font-weight: bold;
             text-shadow: 4px 4px 8px #000; /* سایه مشکی */
             margin-bottom: 10px; /* فاصله پایین عنوان */
-            position: relative;
-            top: 10px; /* کمی بالاتر برای قرارگیری کتیبه */
         }
         .box {
             background-color: rgba(255, 255, 255, 0.9);
@@ -39,6 +40,8 @@
             height: 200px; /* ارتفاع کادر برای پیام‌ها */
             overflow-y: auto; /* اسکرول برای پیام‌های زیاد */
             text-align: right; /* متن راست‌چین */
+            width: 100%; /* عرض کادر 100 درصد */
+            max-width: 800px; /* حداکثر عرض کادر */
         }
         .icons {
             display: flex;
