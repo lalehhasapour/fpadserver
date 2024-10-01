@@ -19,34 +19,38 @@
             text-align: center;
             width: 90%; 
             max-width: 1200px;
-            margin-top: 10px; /* فاصله از بالای صفحه */
+            margin-top: 20px; /* فاصله از بالای صفحه */
         }
         .title {
             font-size: 6em; /* دو برابر بزرگتر */
-            color: #FFD700;
+            color: #FFD700; /* زرد قناری مات */
             font-weight: bold;
-            text-shadow: 4px 4px 8px #000;
+            text-shadow: 4px 4px 8px #000; /* سایه مشکی */
+            margin-bottom: 10px; /* فاصله پایین عنوان */
+            position: relative;
+            top: 10px; /* کمی بالاتر برای قرارگیری کتیبه */
         }
         .box {
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             border-radius: 10px;
-            margin: 30px auto; /* کادر بالاتر برده شده است */
+            margin: 20px auto; /* کادر بالا برده شده */
             height: 200px; /* ارتفاع کادر برای پیام‌ها */
             overflow-y: auto; /* اسکرول برای پیام‌های زیاد */
+            text-align: right; /* متن راست‌چین */
         }
         .icons {
             display: flex;
             justify-content: space-between;
             position: fixed;
-            bottom: 20px; /* به بالاتر منتقل شده */
-            left: 5%;
-            right: 5%;
+            bottom: 15px; /* کمی بالاتر از پایین صفحه */
+            left: 5%; /* فاصله از چپ */
+            right: 5%; /* فاصله از راست */
         }
         .icons div {
-            width: 60px; /* اندازه بزرگتر شده */
-            height: 60px;
+            width: 70px; /* اندازه بزرگتر شده */
+            height: 70px; /* اندازه بزرگتر شده */
             background-color: #FFA500; /* زرد پررنگ‌تر */
             border-radius: 50%;
             display: flex;
