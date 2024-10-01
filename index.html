@@ -17,65 +17,94 @@
             background-size: cover;
             background-position: center;
             direction: rtl;
+            flex-direction: column;
         }
-        .container {
+
+        .header {
+            width: 90%;
+            max-width: 1200px;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.1); /* کادر شفاف برای عنوان و شعار */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
         }
+
         .title {
-            font-size: 3em;
-            color: #FFD700; /* زرد قناری مات */
+            font-size: 6em; /* دو برابر سایز قبلی */
+            color: #FFD700; /* زرد قناری */
             font-weight: bold;
-            text-shadow: 2px 2px 4px #000; /* سایه مشکی */
-            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px #000; /* سایه مشکی */
+            margin-bottom: 10px;
         }
+
         .subtitle {
-            font-size: 1.95em;
-            color: #FFD700; /* زرد قناری مات */
-            font-weight: bold;
+            font-size: 2em;
+            color: #FFA500; /* زرد مایل به نارنجی */
             text-shadow: 2px 2px 4px #000; /* سایه مشکی */
-            margin-bottom: 20px;
         }
+
         .box {
             background-color: rgba(255, 255, 255, 0.9); /* کادر سفید با شفافیت */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایه */
             padding: 20px;
-            margin-bottom: 10px;
             border-radius: 10px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
         }
+
+        .message-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه نرم */
+            border: 1px solid #ddd;
+        }
+
         .icons {
             display: flex;
             justify-content: space-between;
             position: fixed;
             bottom: 20px;
-            left: 20px;
-            right: 20px;
+            left: 5%;
+            right: 5%;
         }
+
         .icons div {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background-color: #FFD700;
-            border-radius: 45%;
+            border-radius: 5px; /* مربع‌های شیبدار */
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.5em;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 2px 2px 5px #000; /* سایه مشکی */
         }
+
         .icons div:hover {
             transform: scale(1.1);
+            box-shadow: 4px 4px 8px #000;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="header">
         <div class="title">iRANCOiN</div>
         <div class="subtitle">اولین پلتفرم رسمی ارائه سیگنال و ربات‌های معامله‌گر کریپتو، فارکس و باینری‌آپشن در کشور</div>
-        
-        <div class="box">
-            <!-- پیام‌ها و سیگنال‌های WebSocket اینجا نمایش داده خواهند شد -->
-            پیام‌های لحظه‌ای در این قسمت قرار می‌گیرند.
-        </div>
+    </div>
+    
+    <div class="box">
+        <!-- پیام‌ها و سیگنال‌های WebSocket اینجا نمایش داده خواهند شد -->
+        <div class="message-box">پیام شماره 1</div>
+        <div class="message-box">پیام شماره 2</div>
+        <div class="message-box">پیام شماره 3</div>
     </div>
     
     <div class="icons">
@@ -97,7 +126,7 @@
             box.appendChild(message);
         };
 
-        // برای آیتم‌های آیکون
+        // برای آیتم‌های آیکن
         document.querySelectorAll('.icons div').forEach((icon, index) => {
             icon.addEventListener('click', () => {
                 window.location.href = `https://your-link-${index + 1}.com`;
