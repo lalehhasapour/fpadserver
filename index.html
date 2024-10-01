@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* از بالای صفحه */
             background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449267178_5c85db37594bdce93a6787dabdc142cf_2_3_photo.jpg');
             background-size: cover;
             background-position: center;
@@ -20,27 +20,31 @@
         }
         .container {
             text-align: center;
-            width: 90%; /* کادر از چپ و راست صفحه 5% فاصله دارد */
-            max-width: 1200px; /* حداکثر عرض کادر */
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 50px; /* فاصله از بالای صفحه */
         }
         .title {
             font-size: 3em;
-            color: #FFD700; /* زرد قناری مات */
+            color: #FFD700;
             font-weight: bold;
-            text-shadow: 2px 2px 4px #000; /* سایه مشکی */
+            text-shadow: 2px 2px 4px #000;
             margin-bottom: 20px;
+            text-align: center; /* عنوان در وسط */
         }
         .subtitle {
             font-size: 1.2em;
-            color: #333; /* مشکی مات */
+            color: #333;
             margin-bottom: 40px;
+            text-align: center; /* زیرعنوان در وسط */
         }
         .box {
-            background-color: rgba(255, 255, 255, 0.9); /* کادر سفید با شفافیت */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایه */
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             border-radius: 10px;
-            margin: 0 auto; /* کادر به صورت خودکار در وسط قرار می‌گیرد */
+            margin: 0 auto;
+            text-align: center; /* متن فارسی در وسط */
         }
         .icons {
             display: flex;
