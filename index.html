@@ -10,9 +10,6 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449267178_5c85db37594bdce93a6787dabdc142cf_2_3_photo.jpg');
             background-size: cover;
             background-position: center;
@@ -20,40 +17,37 @@
         }
         .container {
             text-align: center;
-            width: 90%; /* کادر از چپ و راست صفحه 5% فاصله دارد */
-            max-width: 1200px; /* حداکثر عرض کادر */
+            width: 90%; 
+            max-width: 1200px;
+            margin-top: 10px; /* فاصله از بالای صفحه */
         }
         .title {
-            font-size: 3em;
-            color: #FFD700; /* زرد قناری مات */
+            font-size: 6em; /* دو برابر بزرگتر */
+            color: #FFD700;
             font-weight: bold;
-            text-shadow: 2px 2px 4px #000; /* سایه مشکی */
-            margin-bottom: 20px;
-        }
-        .subtitle {
-            font-size: 1.2em;
-            color: #333; /* مشکی مات */
-            margin-bottom: 40px;
+            text-shadow: 4px 4px 8px #000;
         }
         .box {
-            background-color: rgba(255, 255, 255, 0.9); /* کادر سفید با شفافیت */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایه */
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             border-radius: 10px;
-            margin: 0 auto; /* کادر به صورت خودکار در وسط قرار می‌گیرد */
+            margin: 30px auto; /* کادر بالاتر برده شده است */
+            height: 200px; /* ارتفاع کادر برای پیام‌ها */
+            overflow-y: auto; /* اسکرول برای پیام‌های زیاد */
         }
         .icons {
             display: flex;
             justify-content: space-between;
             position: fixed;
-            bottom: 10px;
-            left: 10px;
-            right: 10px;
+            bottom: 20px; /* به بالاتر منتقل شده */
+            left: 5%;
+            right: 5%;
         }
         .icons div {
-            width: 50px;
-            height: 50px;
-            background-color: #FFD700;
+            width: 60px; /* اندازه بزرگتر شده */
+            height: 60px;
+            background-color: #FFA500; /* زرد پررنگ‌تر */
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -61,6 +55,7 @@
             font-size: 1.5em;
             cursor: pointer;
             transition: transform 0.3s;
+            box-shadow: 2px 2px 4px #000; /* سایه مشکی برای آیکون‌ها */
         }
         .icons div:hover {
             transform: scale(1.1);
@@ -70,7 +65,6 @@
 <body>
     <div class="container">
         <div class="title">iRANCOiN</div>
-        <div class="subtitle">اولین پلتفرم رسمی ارائه سیگنال و ربات‌های معامله‌گر کریپتو، فارکس و باینری‌آپشن در کشور</div>
         
         <div class="box">
             <!-- پیام‌ها و سیگنال‌های WebSocket اینجا نمایش داده خواهند شد -->
@@ -86,7 +80,7 @@
     </div>
 
     <script>
-        // برای دریافت پیام‌های WebSocket
+        // WebSocket برای دریافت پیام‌ها
         const socket = new WebSocket('wss://your-websocket-url');
         
         socket.onmessage = function(event) {
