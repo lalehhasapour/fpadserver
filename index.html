@@ -8,48 +8,64 @@
         body {
             background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449261960_aa102c5b0b2d8ff08cdbcea249326313_2_3_photo.jpg');
             background-size: cover;
+            background-attachment: fixed;
             background-position: center;
-            color: white;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
             font-family: Arial, sans-serif;
+            color: white;
         }
-        .logo {
-            margin-top: 20px;
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .logo img {
+            width: 150px;
+            margin-bottom: 20px;
         }
         .alert-box {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             padding: 20px;
-            margin: 20px;
-            display: inline-block;
-            width: 80%;
-            max-width: 600px;
-        }
-        .signal {
+            margin-top: 20px;
+            color: #FFFFFF;
             font-size: 18px;
-            color: #00FF00;
         }
         h1 {
-            font-size: 32px;
-            color: #FFD700;
-            margin-bottom: 20px;
+            font-size: 36px;
+            color: #FFA500; /* رنگ زرد مایل به نارنجی */
+            margin-bottom: 10px;
         }
         h2 {
             font-size: 24px;
-            color: #FF4500;
+            color: #FF8C00; /* رنگ نارنجی تیره */
+            margin-bottom: 30px;
+        }
+        .signal {
+            font-size: 18px;
+            color: #00FF00; /* رنگ سبز برای سیگنال‌ها */
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="logo">
-        <img src="https://raw.githubusercontent.com/lalehhasapour/logo-images_APP/refs/heads/main/1726971218716_c7ab39c64111fc45e489d0f2b77f13f8_2_3_photo.png" alt="Iran Coin Logo">
-    </div>
-
-    <h1>IRAN COIN</h1>
-    <h2>سیگنال‌های فیوچرز ارزهای دیجیتال</h2>
-
-    <div id="alert-container" class="alert-box">
-        منتظر دریافت سیگنال‌ها...
+    <div class="container">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/lalehhasapour/logo-images_APP/refs/heads/main/1726971218716_c7ab39c64111fc45e489d0f2b77f13f8_2_3_photo.png" alt="Iran Coin Logo">
+        </div>
+        <h1>اولین و تنها پلتفورم رسمی ارائه خدمات بازارهای مالی</h1>
+        <h2>سیگنال‌های فیوچرز ارزهای دیجیتال</h2>
+        
+        <div id="alert-container" class="alert-box">
+            منتظر دریافت سیگنال‌ها...
+        </div>
     </div>
 
     <script>
