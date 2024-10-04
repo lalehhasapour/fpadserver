@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* از بالای صفحه */
+            align-items: flex-start; 
             background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449267178_5c85db37594bdce93a6787dabdc142cf_2_3_photo.jpg');
             background-size: cover;
             background-position: center;
@@ -22,23 +22,7 @@
             text-align: center;
             width: 90%;
             max-width: 1200px;
-            margin-top: 50px; /* فاصله از بالای صفحه */
-        }
-        .title {
-            font-size: 6.4em;
-            color: #FFD400;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
-            margin-bottom: 20px;
-            text-align: center; /* عنوان در وسط */
-        }
-        .subtitle {
-            font-size: 1.5em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
-            color: #FFD700;
-            margin-bottom: 40px;
-            text-align: center; /* زیرعنوان در وسط */
+            margin-top: 50px; 
         }
         .box {
             background-color: rgba(255, 255, 255, 0.9);
@@ -46,7 +30,7 @@
             padding: 20px;
             border-radius: 10px;
             margin: 0 auto;
-            text-align: center; /* متن فارسی در وسط */
+            text-align: center;
         }
         .icons {
             display: flex;
@@ -71,44 +55,42 @@
         .icons div:hover {
             transform: scale(1.1);
         }
+        .icons .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+            color: #FFD700;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">iRANCOiN</div>
-        <div class="subtitle">اولین پلتفرم رسمی ارائه سیگنال و ربات‌های معامله‌گر کریپتو، فارکس و باینری‌آپشن در کشور</div>
-        
         <div class="box">
-            <!-- پیام‌ها و سیگنال‌های WebSocket اینجا نمایش داده خواهند شد -->
+            <!-- پیام‌ها در اینجا نمایش داده خواهند شد -->
             پیام‌های لحظه‌ای در این قسمت قرار می‌گیرند.
         </div>
     </div>
     
     <div class="icons">
-        <div title="آیکون 1">1</div>
+        <div title="ایران کوئین" class="logo">ایران کوئین</div>
         <div title="آیکون 2">2</div>
         <div title="آیکون 3">3</div>
         <div title="آیکون 4">4</div>
     </div>
 
     <script>
-        // برای دریافت پیام‌های WebSocket
-        const socket = new WebSocket('https://github.com/PipedreamHQ/pipedream/tree/master/components/http/actions/custom-request/custom-request.mjs');
-        
-        socket.onmessage = function(event) {
-            const box = document.querySelector('.box');
-            const message = document.createElement('div');
-            message.textContent = event.data;
-            message.classList.add('message-box');
-            box.appendChild(message);
-        };
-
-        // برای آیتم‌های آیکون
-        document.querySelectorAll('.icons div').forEach((icon, index) => {
-            icon.addEventListener('click', () => {
-                window.location.href = `https://your-link-${index + 1}.com`;
+        // دریافت پیام‌ها از طریق ایمیل با استفاده از API سمت سرور (پیش‌فرض)
+        fetch('/api/get-email-alerts')
+            .then(response => response.json())
+            .then(data => {
+                const box = document.querySelector('.box');
+                data.messages.forEach(message => {
+                    const messageElement = document.createElement('div');
+                    messageElement.textContent = message;
+                    messageElement.classList.add('message-box');
+                    box.appendChild(messageElement);
+                });
             });
-        });
     </script>
 </body>
-</html>
+    </html>
