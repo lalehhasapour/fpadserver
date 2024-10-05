@@ -1,0 +1,54 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Nav bar styles */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5c542; /* زرد طلایی */
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon container */
+.navbar a {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f5c542;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Icon hover effects */
+.navbar a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Brand styles */
+.brand {
+  position: fixed;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  padding: 15px;
+  background-color: #f5c542;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
