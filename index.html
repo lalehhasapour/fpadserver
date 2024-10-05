@@ -3,94 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iRANCOiN</title>
+    <title>صفحه اشتراک ربات</title>
     <style>
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; 
-            background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449267178_5c85db37594bdce93a6787dabdc142cf_2_3_photo.jpg');
+            font-family: 'Arial', sans-serif;
+            background: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449357250_938d2a08a8968eb49443a259dc589cca_2_3_photo.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
             direction: rtl;
+            text-align: center;
+            padding-bottom: 80px; /* برای نوار پایینی */
         }
         .container {
-            text-align: center;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 50px; 
-        }
-        .box {
             background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            border-radius: 10px;
-            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            width: 70%;
+            margin: 50px auto;
+        }
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        .content {
+            font-size: 18px;
+            text-align: right;
+            line-height: 1.8;
+        }
+        .content::before {
+            content: "\2022"; /* دایره توپر */
+            font-size: 24px;
+            margin-left: 10px;
+            color: black;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        .button {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        .button-yellow {
+            background-color: #FFD700; /* زرد قناری */
+            color: black;
+        }
+        .button-black {
+            background-color: black;
+            color: white;
+        }
+        .button-blue {
+            background-color: #87CEEB; /* آبی آسمانی */
+            color: black;
+        }
+        .content-en {
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* نوار پیمایش ثابت پایین صفحه */
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
             text-align: center;
         }
-        .icons {
-            display: flex;
-            justify-content: space-between;
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            right: 10px;
+        .navbar a img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            margin: 0 auto;
         }
-        .icons div {
-            width: 50px;
-            height: 50px;
-            background-color: #FFD700;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: transform 0.3s;
+        .navbar a span {
+            display: block;
+            font-size: 14px;
         }
-        .icons div:hover {
-            transform: scale(1.1);
-        }
-        .icons .logo {
-            font-size: 1.2em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
-            color: #FFD700;
+
+        /* برای نمایش در دستگاه‌های کوچک */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .navbar a {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="box">
-            <!-- پیام‌ها در اینجا نمایش داده خواهند شد -->
-            پیام‌های لحظه‌ای در این قسمت قرار می‌گیرند.
+        <!-- لوگو -->
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/lalehhasapour/logo-images_APP/refs/heads/main/1726971218716_c7ab39c64111fc45e489d0f2b77f13f8_2_3_photo.png" alt="لوگوی اپلیکیشن">
+        </div>
+
+        <!-- توضیحات -->
+        <div class="content" lang="fa">
+            کاربر گرامی، دقت داشته باشید قبل از ورود به صفحه پرداخت حتماً وی‌پی‌ان خود را روشن کنید (فیلترشکن).
+        </div>
+        <div class="content-en" lang="en">
+            Dear user, please make sure to turn on your VPN (filter breaker) before entering the payment page.
+        </div>
+
+        <div class="content" lang="fa">
+            لطفاً بعد از پرداخت، رسید یا هش تراکنش موفق را کپی کنید و در قسمت اشتراک ربات خریداری شده وارد نمایید.
+        </div>
+        <div class="content-en" lang="en">
+            After payment, please copy the receipt or successful transaction hash and enter it in the purchased bot subscription section.
+        </div>
+
+        <div class="content" lang="fa">
+            کاربر گرامی، به محض ارسال رسید تراکنش، کارشناسان ما با شما برای ادامه مسیر در ارتباط خواهند بود.
+        </div>
+        <div class="content-en" lang="en">
+            Dear user, as soon as you send the transaction receipt, our experts will contact you to proceed.
+        </div>
+
+        <div class="content" lang="fa">
+            کاربران عزیز، قیمت‌های کنونی تا هفته‌ی آینده شامل 90 درصد تخفیف هستند.
+        </div>
+        <div class="content-en" lang="en">
+            Dear users, current prices include a 90% discount until next week.
+        </div>
+
+        <!-- دکمه‌های اشتراک -->
+        <div class="button-container">
+            <a href="https://nowpayments.io/payment/?iid=5136788574" class="button button-yellow">اشتراک فیوچرز ارزهای‌دیجیتال ۱ هفته- ۱۵ تتر</a>
+            <a href="https://nowpayments.io/payment/?iid=5880250019" class="button button-black">اشتراک فیوچرز ارزهای‌دیجیتال ۱ ماه- ۵۰ تتر</a>
+        </div>
+
+        <!-- دکمه بازگشت به خانه -->
+        <div class="button-container">
+            <a href="https://app.puzzley.net/mobile/4L0I-G9R1-1712-9I1Y#/nav/home-screen216" class="button button-blue">بازگشت به خانه</a>
         </div>
     </div>
-    
-    <div class="icons">
-        <div title="ایران کوئین" class="logo">ایران کوئین</div>
-        <div title="آیکون 2">2</div>
-        <div title="آیکون 3">3</div>
-        <div title="آیکون 4">4</div>
+
+    <!-- نوار پیمایش ثابت -->
+    <div class="navbar">
+        <a href="https://example.com/link1">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/home.png" alt="خانه">
+            <span>خانه</span>
+        </a>
+        <a href="https://example.com/link2">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/search.png" alt="جستجو">
+            <span>جستجو</span>
+        </a>
+        <a href="https://example.com/link3">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/notifications.png" alt="اطلاعیه‌ها">
+            <span>اطلاعیه‌ها</span>
+        </a>
+        <a href="https://example.com/link4">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/settings.png" alt="تنظیمات">
+            <span>تنظیمات</span>
+        </a>
     </div>
 
-    <script>
-        // دریافت پیام‌ها از طریق ایمیل با استفاده از API سمت سرور (پیش‌فرض)
-        fetch('/api/get-email-alerts')
-            .then(response => response.json())
-            .then(data => {
-                const box = document.querySelector('.box');
-                data.messages.forEach(message => {
-                    const messageElement = document.createElement('div');
-                    messageElement.textContent = message;
-                    messageElement.classList.add('message-box');
-                    box.appendChild(messageElement);
-                });
-            });
-    </script>
 </body>
-    </html>
+</html>
