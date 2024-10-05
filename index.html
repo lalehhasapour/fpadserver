@@ -3,56 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه با بک‌گراند دینامیک</title>
-    
-    <!-- لینک به فایل استایل -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            width: 100%;
-            font-family: sans-serif;
-        }
-
-        .background {
-            background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449267178_5c85db37594bdce93a6787dabdc142cf_2_3_photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .content {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .background {
-                background-size: auto 100%; /* تنظیم بهتر برای موبایل */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- لینک به فایل CSS -->
+    <title>صفحه اپلیکیشن</title>
 </head>
 <body>
-    <div class="background">
-        <div class="content">
-            <h1>به صفحه من خوش آمدید!</h1>
-            <p>این صفحه به صورت داینامیک برای تمامی دستگاه‌ها بهینه شده است.</p>
-        </div>
-    </div>
 
     <!-- برند -->
     <div class="brand">iRANCOiN</div>
@@ -67,28 +21,5 @@
         <a href="#icon6">آیکن شش</a>
     </div>
 
-    <!-- Lazy Loading برای بهبود عملکرد -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
-
-            if ('IntersectionObserver' in window) {
-                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove('lazy');
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(function(lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
-            }
-        });
-    </script>
 </body>
-    </html>
+</html>
