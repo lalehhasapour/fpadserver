@@ -1,25 +1,89 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> <!-- لینک به فایل CSS -->
-    <title>صفحه اپلیکیشن</title>
+    <title>IranCoin</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449261960_aa102c5b0b2d8ff08cdbcea249326313_2_3_photo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        .header {
+            width: 90%;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            font-size: 72px;
+            font-weight: bold;
+            color: #FFD700; /* زرد طلایی */
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        .message-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            height: 250px;
+            overflow-y: auto;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- برند -->
-    <div class="brand">iRANCOiN</div>
-
-    <!-- نوار پایین -->
-    <div class="navbar">
-        <a href="#icon1">آیکن یک</a>
-        <a href="#icon2">آیکن دو</a>
-        <a href="#icon3">آیکن سه</a>
-        <a href="#icon4">آیکن چهار</a>
-        <a href="#icon5">آیکن پنج</a>
-        <a href="#icon6">آیکن شش</a>
+    <div class="header">
+        <h1 class="logo">IRANCOIN</h1>
+    </div>
+    <div class="message-box" id="message-box">
+        <!-- پیام‌ها در اینجا ظاهر خواهند شد -->
     </div>
 
+    <script>
+        // URLی که Webhook از آن پیام‌ها را دریافت می‌کند
+        const webhookURL = "https://your-webhook-url-here.com";
+
+        // این فانکشن برای دریافت پیام‌ها از طریق Webhook است
+        async function fetchMessages() {
+            try {
+                const response = await fetch(webhookURL);
+                const data = await response.json();
+                displayMessages(data);
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+            }
+        }
+
+        // پیام‌های دریافتی را در message-box نمایش می‌دهد
+        function displayMessages(messages) {
+            const messageBox = document.getElementById('message-box');
+            messageBox.innerHTML = ''; // پاک کردن پیام‌های قدیمی
+            messages.forEach(message => {
+                const messageElement = document.createElement('p');
+                messageElement.textContent = message;
+                messageBox.appendChild(messageElement);
+            });
+        }
+
+        // فراخوانی اولیه برای دریافت پیام‌ها
+        fetchMessages();
+        
+        // هر 30 ثانیه یک‌بار پیام‌ها را دوباره دریافت می‌کند
+        setInterval(fetchMessages, 30000);
+    </script>
 </body>
 </html>
