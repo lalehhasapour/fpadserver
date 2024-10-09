@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449261960_aa102c5b0b2d8ff08cdbcea249326313_2_3_photo.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    animation: slideInFromLeft 1s forwards;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    animation: fadeIn 1.5s forwards;
+}
+
+.features, .main-features, footer {
+    padding: 2rem;
+    text-align: center;
+}
+
+.features h2, .main-features h3, footer h2 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.features p, .main-features p, footer p {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.5s ease-out;
+}
+
+.feature {
+    margin: 2rem 0;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
