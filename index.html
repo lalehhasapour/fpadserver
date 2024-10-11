@@ -1,97 +1,17 @@
-html
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iRANCOiN Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-        header {
-            background: #1c9cf2;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        section {
-            padding: 100px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .portfolio-item {
-            width: 300px;
-            margin: 20px;
-            transition: transform 0.3s;
-        }
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-        .portfolio-image {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>iRANCOiN</h1>
-    <p>پشتیبانی از بازارهای جهانی</p>
-</header>
-
-<main>
-    <section id="portfolio" class="portfolio-section">
-        <h2>نمونه کارها</h2>
-        <div class="portfolio-container">
-            <div class="portfolio-item">
-                <img class="portfolio-image" src="https://via.placeholder.com/300" alt="نمونه کار 1">
-                <p>توضیحات نمونه کار 1</p>
-            </div>
-            <div class="portfolio-item">
-                <img class="portfolio-image" src="https://via.placeholder.com/300" alt="نمونه کار 2">
-                <p>توضیحات نمونه کار 2</p>
-            </div>
-            <div class="portfolio-item">
-                <img class="portfolio-image" src="https://via.placeholder.com/300" alt="نمونه کار 3">
-                <p>توضیحات نمونه کار 3</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<script>
-    const sections = document.querySelectorAll('section');
-
-    const options = {
-        root: null,
-        threshold: 0.1,
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, options);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-</script>
-
-</body>
-</html>
+<div class="container-fluid">
+	<div class="row">
+		<div id="ms-container">
+			<label for="ms-download">
+				<div class="ms-content">
+					<div class="ms-content-inside">
+						<input type="checkbox" id="ms-download" />
+						<div class="ms-line-down-container">
+							<div class="ms-line-down"></div>
+						</div>
+						<div class="ms-line-point"></div>
+					</div>
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
