@@ -1,74 +1,72 @@
-* {
+body {
+    font-family: 'IranSans', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    direction: rtl;
 }
 
-body {
-    background-image: url('https://raw.githubusercontent.com/lalehhasapour/My-App-Images/refs/heads/main/1726449261960_aa102c5b0b2d8ff08cdbcea249326313_2_3_photo.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    color: white;
+.section {
+    padding: 50px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-.hero {
-    height: 100vh;
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2.title {
+    font-size: 2.5rem;
+    color: #1c9cf2;
+    margin-bottom: 20px;
+    animation: slide-in 1.5s ease-out forwards;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+    animation: fade-in 2s ease-out forwards;
+}
+
+.images {
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    gap: 20px;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    animation: slideInFromLeft 1s forwards;
+.images img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    animation: fadeIn 1.5s forwards;
+.images img:hover {
+    transform: scale(1.05);
 }
 
-.features, .main-features, footer {
-    padding: 2rem;
-    text-align: center;
+@keyframes slide-in {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-.features h2, .main-features h3, footer h2 {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease-out;
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.features p, .main-features p, footer p {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1.5s ease-out;
-}
-
-.feature {
-    margin: 2rem 0;
-}
-
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+/* Scroll animation */
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 150) {
+            section.classList.add('show');
+        }
+    });
+});
