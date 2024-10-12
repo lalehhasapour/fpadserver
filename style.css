@@ -1,84 +1,235 @@
+html,
 body {
+	margin: 0;
 	height: 100%;
 }
-body {
-	margin: 0;
-	display: flex;
+
+/* ............................................................... */
+/* ............................................................... */
+/* ............................................................... */
+#retrobg {
+	position: relative;
 	overflow: hidden;
-	align-items: center;
-	justify-content: center;
-	background-color: #222;
+	height: 100%;
+	color: #a3c;
+	background-color: #000;
 }
 
-/* ..................................................... */
-.TextGlitch {
-	--TextGlitch-blendSize: .08em;
-	--TextGlitch-blendColorA: #77f8;
-	--TextGlitch-blendColorB: #ff68;
-	
-	position: relative;
-	color: #fff;
-	line-height: 1em;
-	letter-spacing: -.1ch;
-	font-size: 8vw;
-	font-family: "Fira Code", monospace;
-}
-
-.TextGlitch::after {
-	display: none;
-    content: "";
-    position: absolute;
-    left: 100%;
-    bottom: 0;
-    width: .7ch;
-    height: 1em;
-    margin-left: .35ch;
-    border-radius: 2px;
-    background-color: currentColor;
-    animation: cursorAnim 1s ease infinite;
-}
-@keyframes cursorAnim {
-	0% { opacity: .5; }
-	45% { opacity: .5; }
-	55% { opacity: 0; }
-	100% { opacity: 0; }
-}
-
-.TextGlitch-clip {
-	position: relative;
+/* ............................................................... */
+#retrobg-sky {
+	position: absolute;
 	display: flex;
-	align-items: baseline;
-}
-.TextGlitch-clip + .TextGlitch-clip {
-	position: absolute;
+	align-items: flex-end;
+	justify-content: center;
 	top: 0;
-}
-.TextGlitch:not( .TextGlitch-blended ) .TextGlitch-clip + .TextGlitch-clip {
-	display: none;
+	width: 100%;
+	height: 55%;
+	background: linear-gradient(#214 75%, #249);
 }
 
-.TextGlitch-word {
-	margin: 0;
-	white-space: nowrap;
+/* ............................................................... */
+#retrobg-sunWrap {
+	position: relative;
+	width: 40%;
+	margin-bottom: -15%;
+}
+#retrobg-sun {
+	--glow-color: #d44;
+	padding-top: 100%;
+	border-radius: 50%;
+	background-image: linear-gradient(#fcdf11, #ff623f, #fe2085 50%);
+	box-shadow: 0 0 160px 80px var(--glow-color);
+	animation: 2s ease infinite alternate retrobg-sun-glow-anim;
+}
+.retrobg-shutdown #retrobg-sun {
+	background-image: linear-gradient(#000, #000 40%);
+	--glow-color: #000;
+}
+@keyframes retrobg-sun-glow-anim {
+	from {
+		box-shadow: 0 0 160px 80px var(--glow-color);
+	}
+	to {
+		box-shadow: 0 0 200px 95px var(--glow-color);
+	}
 }
 
-.TextGlitch-blend {
+/* ............................................................... */
+#retrobg-stars {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.retrobg-star {
+	position: absolute;
+	border-radius: 50%;
+	width: 2px;
+	height: 2px;
+	background-color: #fff;
+}
+
+/* ............................................................... */
+#retrobg-mountains {
+	position: absolute;
+	width: 100%;
+	height: 30%;
+}
+.retrobg-mountain {
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	background-image: linear-gradient(#000 70%, #111 85%, #fff1);
+}
+#retrobg-mountains-left {
+	left: 0;
+	clip-path: polygon(
+		0% 100%,
+		0% 55%,
+		5% 60%,
+		10% 55%,
+		20% 50%,
+		25% 42%,
+		30% 38%,
+		33% 35%,
+		40% 45%,
+		50% 50%,
+		60% 70%,
+		70% 85%,
+		75% 82%,
+		80% 91%,
+		85% 90%,
+		90% 95%,
+		95% 98%,
+		100% 100%
+	);
+}
+#retrobg-mountains-right {
+	right: 0;
+	clip-path: polygon(
+		0% 100%,
+		5% 95%,
+		10% 85%,
+		15% 87%,
+		20% 80%,
+		25% 78%,
+		30% 65%,
+		40% 70%,
+		50% 57%,
+		60% 53%,
+		67% 68%,
+		70% 70%,
+		75% 66%,
+		80% 55%,
+		90% 50%,
+		95% 60%,
+		100% 57%,
+		100% 100%
+	);
+}
+
+/* ............................................................... */
+#retrobg-cityWrap {
+	position: absolute;
+	width: 50%;
+	margin-left: -1%;
+}
+#retrobg-city {
+	padding-top: 20%;
+}
+.retrobg-building {
+	position: absolute;
+	width: 5%;
+	height: 100%;
+	bottom: 0;
+	border-radius: 4px 4px 0 0;
+	background-image: linear-gradient(0deg, rgba(17, 17, 34, 0), #112 30px, #000);
+}
+.retrobg-building:nth-child(odd) {
+	background-image: linear-gradient(0deg, rgba(24, 24, 42, 0), #223 30px, #000);
+}
+.retrobg-antenna::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	margin-left: calc(-1px - 5%);
+	bottom: 100%;
+	width: 10%;
+	min-width: 2px;
+	height: 33%;
+	background-color: #000;
+}
+
+/* ............................................................... */
+#retrobg-ground {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 45%;
+	bottom: 0;
+	border-top: 2px solid #bf578c;
+	background-color: #000;
+}
+.retrobg-shutdown #retrobg-ground {
+	border-color: #000;
+}
+#retrobg-groundShadow {
 	position: absolute;
 	top: 0;
-	opacity: 0;
-	transition: .1s;
-	transition-property: opacity;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(#000 0%, transparent);
 }
-.TextGlitch-blendA {
-	color: var( --TextGlitch-blendColorA );
-	margin: calc( var( --TextGlitch-blendSize ) * -1 ) 0 0 var( --TextGlitch-blendSize );
-	mix-blend-mode: darken;
+
+/* ............................................................... */
+#retrobg-linesWrap {
+	height: 100%;
+	perspective: 1000px;
+	perspective-origin: center top;
 }
-.TextGlitch-blendB {
-	color: var( --TextGlitch-blendColorB );
-	margin: var( --TextGlitch-blendSize ) 0 0 calc( var( --TextGlitch-blendSize ) * -1 );
-	mix-blend-mode: color-burn;
+#retrobg-lines {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-origin: top center;
+	animation: 0.35s linear infinite retrobg-lines-anim;
 }
-.TextGlitch-blended .TextGlitch-blend {
-	opacity: .4;
+.retrobg-shutdown #retrobg-lines {
+	animation-duration: 5s;
+}
+@keyframes retrobg-lines-anim {
+	from {
+		transform: rotateX(84deg) translateY(0);
+	}
+	to {
+		transform: rotateX(84deg) translateY(100px);
+	}
+}
+#retrobg-hlines,
+#retrobg-vlines {
+	position: absolute;
+	left: calc((900% - 100%) / -2);
+	width: 900%;
+	height: 500%;
+}
+#retrobg-vlines {
+	display: flex;
+	justify-content: center;
+}
+.retrobg-hline,
+.retrobg-vline {
+	width: 100%;
+	height: 100%;
+	background-color: currentColor;
+}
+.retrobg-hline {
+	height: 3px;
+}
+.retrobg-vline {
+	width: 3px;
+}
+.retrobg-hline + .retrobg-hline {
+	margin-top: 98px;
+}
+.retrobg-vline + .retrobg-vline {
+	margin-left: 48px;
 }
