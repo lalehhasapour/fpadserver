@@ -241,7 +241,21 @@ body {
         margin-left: 48px;
 }
 </style>
-
+  
+<style>
+  <div class="outerframe">
+  <footer>
+    <a href="#"><i data-feather="home"></i></a>
+    <a href="#"><i data-feather="box"></i></a>
+    <a href="#"><i data-feather="camera"></i></a>
+    <a href="#"><i data-feather="map-pin"></i></a>
+    <a href="#"><i data-feather="settings"></i></a>
+  </footer>
+</div>
+  <script>
+  feather.replace()
+  </script>
+</style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -400,6 +414,5 @@ document.querySelector("#retrobg-sun").onclick = () => {
         document.querySelector("#retrobg").classList.toggle("retrobg-shutdown");
 };
 </script>
-
 </body>
 </html>
