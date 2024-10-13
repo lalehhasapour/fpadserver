@@ -240,9 +240,6 @@ body {
 .retrobg-vline + .retrobg-vline {
         margin-left: 48px;
 }
-</style>
-  
-<style>
 body{
   background:aliceblue;
 }
@@ -288,7 +285,7 @@ footer.feather {
   stroke-linejoin: round;
   fill: none;
   }
-</style>
+  </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -441,11 +438,22 @@ footer.feather {
         <div>
 </div>
 <!-- partial -->
-
+<div class="outerframe">
+  <footer>
+    <a href="#"><i data-feather="home"></i></a>
+    <a href="#"><i data-feather="box"></i></a>
+    <a href="#"><i data-feather="camera"></i></a>
+    <a href="#"><i data-feather="map-pin"></i></a>
+    <a href="#"><i data-feather="settings"></i></a>
+  </footer>
+</div>
   <script>
 document.querySelector("#retrobg-sun").onclick = () => {
         document.querySelector("#retrobg").classList.toggle("retrobg-shutdown");
 };
 </script>
+ <script>
+   feather.replace()
+  </script>
 </body>
 </html>
