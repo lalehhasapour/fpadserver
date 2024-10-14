@@ -240,37 +240,49 @@ body {
 .retrobg-vline + .retrobg-vline {
         margin-left: 48px;
 }
-body{
-  background:aliceblue;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
+html {
+  font-size: 62.5%;
 }
-*{
-  box-sizing:border-box;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.4rem;
+	-webkit-tap-highlight-color: transparent;
 }
-footer{
-  position:absolute;
-  left:0;
-  bottom:0;
-  background:#1089ff;
-  width:100%;
-  height:80px;
-  padding: 0 24px;
-  border-radius:30px;
-  display:inline-flex;
-  justify-content:space-between;
-  align-items:center;
+
+:root {
+	--bg-default: #222327;
+	--primary-white: #ffffff;
+	--primary-red: #ff3c41;
 }
-footer a{
-  color:#fff;
-  }
-  footer.feather {
-  width: 24px;
-  height: 24px;
-  stroke: #fff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  }
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: var(--bg-default);
+}
+
+.navigation {
+	width: 360px;
+	height: 70px;
+	background: var(--primary-white);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	padding: 0 20px;
+	.listWrap {
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
   </style>
 </head>
 <body>
@@ -424,13 +436,44 @@ footer a{
         <div>
 </div>
 <!-- partial -->
-<div class="outerframe">
   <footer>
-    <a href="#"><i data-feather="home"></i></a>
-    <a href="#"><i data-feather="box"></i></a>
-    <a href="#"><i data-feather="camera"></i></a>
-    <a href="#"><i data-feather="map-pin"></i></a>
-    <a href="#"><i data-feather="settings"></i></a>
+    <div class="navigation">
+	<ul class="listWrap">
+		<li class="list active">
+			<a href="javascript:void(0);">
+				<i class="icon">
+					<ion-icon name="home-outline"></ion-icon>
+				</i>
+				<span class="text">Home</span>
+			</a>
+		</li>
+		<li class="list">
+			<a href="javascript:void(0);">
+				<i class="icon">
+					<ion-icon name="information-circle-outline"></ion-icon>
+				</i>
+				<span class="text">About</span>
+			</a>
+		</li>
+		<li class="list">
+			<a href="javascript:void(0);">
+				<i class="icon">
+					<ion-icon name="person-outline"></ion-icon>
+				</i>
+				<span class="text">Profile</span>
+			</a>
+		</li>
+		<li class="list">
+			<a href="javascript:void(0);">
+				<i class="icon">
+					<ion-icon name="settings-outline"></ion-icon>
+				</i>
+				<span class="text">Settings</span>
+			</a>
+		</li>
+		<li class="indicator"></li>
+	</ul>
+    </div>
   </footer>
 </div>
   <script>
@@ -439,7 +482,19 @@ document.querySelector("#retrobg-sun").onclick = () => {
 };
 </script>
  <script>
-   feather.replace()
+   const listItem = document.querySelectorAll('.list');
+
+function activateLink() {
+	listItem.forEach( item => {
+		item.classList.remove('active');
+	});
+	this.classList.add('active');
+}
+
+listItem.forEach( item => {
+	item.addEventListener('click', activateLink);
+});
+
   </script>
 </body>
 </html>
