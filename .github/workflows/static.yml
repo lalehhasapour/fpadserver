@@ -41,3 +41,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+              - name: Rebuild Armbian
+                uses: armbian/build@v24.11.0-trunk.303
